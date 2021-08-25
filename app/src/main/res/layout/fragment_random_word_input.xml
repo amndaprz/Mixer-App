@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/fullscreenBackgroundColor"
+    android:theme="@style/ThemeOverlay.Mixer.FullscreenContainer"
+    tools:context=".RandomWordInput"
+    android:id="@+id/RandomWordInput">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:keepScreenOn="true"
+                android:text="Enter word:"
+                android:textColor="?attr/fullscreenTextColor"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <EditText
+                android:id="@+id/input_random_word"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:hint="Enter alpha-numeric text"
+                android:inputType="text"
+                tools:ignore="Autofill" />
+        </LinearLayout>
+            <TextView
+                android:id="@+id/sub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:keepScreenOn="true"
+                android:text="Min. 2 Max. 30"
+                android:textSize="20sp"
+                />
+
+            <Button
+                android:id="@+id/enter"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add String" />
+        </LinearLayout>
+        <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-223dp">
+
+            <LinearLayout
+                android:id="@+id/fullscreen_content_controls"
+                style="@style/Widget.Theme.Mixer.ButtonBar.Fullscreen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:orientation="horizontal"
+                tools:ignore="UselessParent">
+
+                <Button
+                    android:id="@+id/mix"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mix" />
+
+
+            </LinearLayout>
+
+
+
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

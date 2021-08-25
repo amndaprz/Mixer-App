@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RandomWordFragment"
+    android:id="@+id/randomWordFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/inst"
+            android:layout_width="377dp"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_rWord_instruction"
+            tools:layout_editor_absoluteX="18dp"
+            tools:layout_editor_absoluteY="124dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="Next"
+            app:layout_constraintTop_toBottomOf="@id/inst"
+            tools:layout_editor_absoluteX="144dp"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
