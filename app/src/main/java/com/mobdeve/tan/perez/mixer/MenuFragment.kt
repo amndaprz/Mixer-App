@@ -40,9 +40,9 @@ class MenuFragment : Fragment() {
 
         binding.buttonDice.setOnClickListener {
 
-            val randomWord = RandomWordFragment()
+            val diceRoll = DiceRollFragment()
             val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
-            transaction.replace(R.id.mainLayout,randomWord)
+            transaction.replace(R.id.mainLayout,diceRoll)
             transaction.commit()
         }
 
