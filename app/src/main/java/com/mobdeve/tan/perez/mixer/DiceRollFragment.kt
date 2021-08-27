@@ -1,5 +1,6 @@
 package com.mobdeve.tan.perez.mixer
 
+import android.content.Context.SENSOR_SERVICE
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -17,6 +18,8 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.databinding.DataBindingUtil.setContentView
 import com.mobdeve.tan.perez.mixer.databinding.FragmentDiceRollBinding
 
 class DiceRollFragment : Fragment() {
@@ -30,17 +33,6 @@ class DiceRollFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentDiceRollBinding.inflate(inflater, container, false)
-        binding.mix.visibility = View.INVISIBLE
-
-        binding.enter.setOnClickListener {
-
-        }
-
-        binding.mix.setOnClickListener{
-            val randomindex = (1 until(wordList.size)).random()
-
-            Toast.makeText(context, wordList[randomindex], Toast.LENGTH_SHORT).show()
-        }
 
 
         return binding.root
@@ -48,12 +40,10 @@ class DiceRollFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.fragment_dice_roll)
 
         // Keeps phone in light mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-
-        square = findViewById(R.id.tv_square)
 
         setUpSensorStuff()
     }
@@ -73,30 +63,14 @@ class DiceRollFragment : Fragment() {
         }
     }
 
+    private fun getSystemService(sensorService: String): Any {
+
+    }
+
     override fun onSensorChanged(event: SensorEvent?) {
-        // Checks for the sensor we have registered
         if (event?.sensor?.type == Sensor.TYPE_ACCELEROMETER) {
-            //Log.d("Main", "onSensorChanged: sides ${event.values[0]} front/back ${event.values[1]} ")
-
-            // Sides = Tilting phone left(10) and right(-10)
-            val sides = event.values[0]
-
-            // Up/Down = Tilting phone up(10), flat (0), upside-down(-10)
-            val upDown = event.values[1]
-
-            square.apply {
-                rotationX = upDown * 3f
-                rotationY = sides * 3f
-                rotation = -sides
-                translationX = sides * -10
-                translationY = upDown * 10
+            //shake
             }
-
-            // Changes the colour of the square if it's completely flat
-            val color = if (upDown.toInt() == 0 && sides.toInt() == 0) Color.GREEN else Color.RED
-            square.setBackgroundColor(color)
-
-            square.text = "up/down ${upDown.toInt()}\nleft/right ${sides.toInt()}"
         }
     }
 
@@ -105,6 +79,7 @@ class DiceRollFragment : Fragment() {
     }
 
     override fun onDestroy() {
+        val sensorManager
         sensorManager.unregisterListener(this)
         super.onDestroy()
     }
