@@ -40,7 +40,7 @@ class DiceRollFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_dice_roll)
+        //setContentView(R.layout.fragment_dice_roll)
 
         // Keeps phone in light mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -50,10 +50,9 @@ class DiceRollFragment : Fragment() {
 
     private fun setUpSensorStuff() {
         // Create the sensor manager
-        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+        //sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
-        // Specify the sensor you want to listen to
-        sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)?.also { accelerometer ->
+        /* sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)?.also { accelerometer ->
             sensorManager.registerListener(
                 this,
                 accelerometer,
@@ -82,6 +81,6 @@ class DiceRollFragment : Fragment() {
         val sensorManager
         sensorManager.unregisterListener(this)
         super.onDestroy()
+    }*/
     }
-
 }
