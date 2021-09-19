@@ -10,17 +10,13 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import com.mobdeve.tan.perez.mixer.databinding.FragmentMenuBinding
-import com.mobdeve.tan.perez.mixer.databinding.FragmentRandomWordBinding
+import com.mobdeve.tan.perez.mixer.databinding.FragmentRandomWordInputBinding
+import com.mobdeve.tan.perez.mixer.databinding.FragmentDiceRollBinding
 //import kotlinx.android.synthetic.main.fragment_menu.*
 
 class MenuFragment : Fragment() {
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
@@ -31,12 +27,11 @@ class MenuFragment : Fragment() {
 
         binding.buttonRandomWord.setOnClickListener {
 
-            val randomWord = RandomWordFragment()
+            val randomWord = RandomWordInput()
             val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
             transaction.replace(R.id.mainLayout,randomWord)
             transaction.commit()
         }
-
 
         binding.buttonDice.setOnClickListener {
 
@@ -48,41 +43,37 @@ class MenuFragment : Fragment() {
 
         binding.button8Ball.setOnClickListener {
 
-            val randomWord = RandomWordFragment()
+            val magicBall = MagicBallFragment()
             val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
-            transaction.replace(R.id.mainLayout,randomWord)
+            transaction.replace(R.id.mainLayout,magicBall)
             transaction.commit()
         }
 
         binding.buttonRandomColor.setOnClickListener {
 
-            val randomWord = RandomWordFragment()
+            val randomColor = RandomColorFragment()
             val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
-            transaction.replace(R.id.mainLayout,randomWord)
+            transaction.replace(R.id.mainLayout,randomColor)
             transaction.commit()
         }
 
         binding.buttonCoinFlip.setOnClickListener {
 
-            val randomWord = RandomWordFragment()
+            val coinFlip = CoinFlipFragment()
             val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
-            transaction.replace(R.id.mainLayout,randomWord)
+            transaction.replace(R.id.mainLayout,coinFlip)
             transaction.commit()
         }
 
         binding.buttonSpinBottle.setOnClickListener {
 
-            val randomWord = RandomWordFragment()
+            val spinBottle = SpinBottleFragment()
             val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
-            transaction.replace(R.id.mainLayout,randomWord)
+            transaction.replace(R.id.mainLayout, spinBottle)
             transaction.commit()
         }
 
-
-
         return binding.root
-
-
     }
 
     override fun onDestroyView() {

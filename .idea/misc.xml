@@ -4,10 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11684782608695653" />
-        <entry key="app/src/main/res/layout/fragment_dice_roll.xml" value="0.16324786324786325" />
+        <entry key="app/src/main/res/layout/fragment_coin_flip.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_dice_roll.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_magic_ball.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_random_color.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_random_word.xml" value="0.16324786324786325" />
-        <entry key="app/src/main/res/layout/fragment_random_word_input.xml" value="0.16324786324786325" />
+        <entry key="app/src/main/res/layout/fragment_random_word_input.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_spin_bottle.xml" value="0.25" />
       </map>
     </option>
   </component>

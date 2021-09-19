@@ -2,12 +2,19 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="?attr/fullscreenBackgroundColor"
-    android:theme="@style/ThemeOverlay.Mixer.FullscreenContainer"
     tools:context=".RandomWordInput"
-    android:id="@+id/RandomWordInput">
+    android:id="@+id/RandomWordInput"
+    android:background="#161a26">
+
+    <ImageView
+        android:id="@+id/homeView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:padding="0dp"
+        android:src="@drawable/word_view" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,80 +25,148 @@
             android:orientation="vertical"
             tools:ignore="MissingConstraints">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <TextView
-                android:id="@+id/Title"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:keepScreenOn="true"
-                android:text="Enter word:"
-                android:textColor="?attr/fullscreenTextColor"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent"/>
-            <EditText
-                android:id="@+id/input_random_word"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:hint="Enter alpha-numeric text"
-                android:inputType="text"
-                tools:ignore="Autofill" />
         </LinearLayout>
-            <TextView
-                android:id="@+id/sub"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:keepScreenOn="true"
-                android:text="Min. 2 Max. 30"
-                android:textSize="20sp"
-                />
 
-            <Button
-                android:id="@+id/enter"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Add String" />
-        </LinearLayout>
-        <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="-223dp">
+        <Button
+            android:id="@+id/share_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="38dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.611"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.649" />
 
-            <LinearLayout
-                android:id="@+id/fullscreen_content_controls"
-                style="@style/Widget.Theme.Mixer.ButtonBar.Fullscreen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:orientation="horizontal"
-                tools:ignore="UselessParent">
+        <TextView
+            android:id="@+id/word1"
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sub"
+            app:layout_constraintVertical_bias="0.434" />
 
-                <Button
-                    android:id="@+id/mix"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Mix" />
+        <TextView
+            android:id="@+id/word2"
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/teal_200"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sub"
+            app:layout_constraintVertical_bias="0.29" />
 
+        <TextView
+            android:id="@+id/word3"
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/teal_200"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sub"
+            app:layout_constraintVertical_bias="0.144" />
 
-            </LinearLayout>
+        <Button
+            android:id="@+id/back_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="61dp"
+            android:layout_height="49dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.106"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.055" />
 
+        <Button
+            android:id="@+id/mix"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.438"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.649" />
 
+        <Button
+            android:id="@+id/enter"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:text="Add Word/s"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.248" />
 
+        <EditText
+            android:id="@+id/input_random_word"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/light_blue_900"
+            android:hint="Enter alpha-numeric text"
+            android:inputType="text"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/mix"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.355"
+            tools:ignore="Autofill" />
 
-        </FrameLayout>
+        <TextView
+            android:id="@+id/word_cnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:keepScreenOn="true"
+            android:text="0"
+            android:textColor="@color/teal_700"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toBottomOf="@+id/input_random_word"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.678" />
+
+        <TextView
+            android:id="@+id/sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:keepScreenOn="true"
+            android:text="*Minimum of 2 words and maximum of 30"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/input_random_word"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.819" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
